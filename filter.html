@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Filter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h2, h3 {
+            margin: 0.5em 0;
+        }
+
+        #arr, #evens, #big, #negative, #odds {
+            width: 80%;
+            max-width: 800px;
+            margin: 10px auto;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #arr {
+            background-color: #e7f3ff;
+        }
+
+        #evens {
+            background-color: #d4edda;
+        }
+
+        #big {
+            background-color: #fff3cd;
+        }
+
+        #negative {
+            background-color: #f8d7da;
+        }
+
+        #odds {
+            background-color: #fbe3ff;
+        }
+
+        div {
+            font-size: 1rem;
+            word-wrap: break-word;
+        }
+    </style>
+  </head>
+  <body>
+
+    <div id="arr"><h2>Numbers Array</h2></div>
+    <div id="evens"><h3>Evens</h3></div>
+    <div id="big"><h3>Larger than 3</h3></div>
+    <div id="negative"><h3>Negatives</h3></div>
+    <div id="odds"><h3>Odds</h3></div>
+    <hr>
+    <a href="index.html" style="text-decoration: none; color: white; background-color: #007bff; padding: 10px 20px; border-radius: 5px; margin: 10px; display: inline-block; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
+        Bouncing Button
+    </a>
+    <a href="students.html" style="text-decoration: none; color: white; background-color: #28a745; padding: 10px 20px; border-radius: 5px; margin: 10px; display: inline-block; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
+        Students Page
+    </a>
+    <a href="zoo.html" style="text-decoration: none; color: white; background-color: #ffc107; padding: 10px 20px; border-radius: 5px; margin: 10px; display: inline-block; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
+        Zoo Page
+    </a>
+
+    <script>
+      let randNumArr = [];
+
+      function getRandomNumberInRange(min, max) {
+        return Math.random() * (max - min) + min;
+      } // min is the lower bound, max is the upper bound
+
+      for (i = 1; i < 101; i++) {
+        randNumArr.push(Math.floor(getRandomNumberInRange(-10, 10)));
+      }
+
+      arr.innerHTML += randNumArr
+
+      console.log(randNumArr);
+
+      function findEven(num) {
+        return num % 2 == 0
+      }
+
+      console.log(randNumArr.filter(findEven));
+
+      evens.innerHTML += randNumArr.filter(findEven)
+
+      function findLargerThan3 (num) {
+        return num > 3
+      }
+
+      console.log(randNumArr.filter(findLargerThan3));
+
+      big.innerHTML += randNumArr.filter(findLargerThan3)
+
+      function findNegatives (num) {
+        return num < 0
+      }
+      console.log(randNumArr.filter(findNegatives));
+
+      negative.innerHTML += randNumArr.filter(findNegatives)
+
+      function findOdds (num) {
+        return num % 2 != 0
+      }
+
+      console.log(randNumArr.filter(findOdds));
+      
+      odds.innerHTML += randNumArr.filter(findOdds)
+      
+    </script>
+  </body>
+</html>

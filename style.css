@@ -1,0 +1,110 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  /* Header styling */
+  h1 {
+    text-align: center;
+    color: #444;
+    margin-top: 20px;
+  }
+  
+  /* User input section styling */
+  #userInput {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  #userInput span {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  #userInput input {
+    margin-right: 20px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  #userInput button {
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #userInput button:hover {
+    background-color: #4cae4c;
+  }
+  
+  /* Display section styling */
+  #display {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  #display button {
+    padding: 6px 12px;
+    margin-right: 10px;
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #display button:hover {
+    background-color: #c9302c;
+  }
+  
+  #display button:last-child {
+    background-color: #0275d8;
+  }
+  
+  #display button:last-child:hover {
+    background-color: #025aa5;
+  }
+  
+  /* Save button styling */
+  button {
+    margin: 20px auto;
+    display: block;
+    padding: 10px 20px;
+    background-color: #0275d8;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #025aa5;
+  }
+  
+  /* Image styling */
+  img {
+    margin-top: 10px;
+    max-width: 100px;
+    max-height: 100px;
+    display: block;
+    border-radius: 6px;
+  }
+  

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Students</title>
+   <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Students</h1>
+
+    <div id="userInput">
+      <span>Name: </span>
+      <input type="text" id="stuName" />
+      <span>Age: </span>
+      <input type="number" id="age" />
+      <span>Year: </span>
+      <input type="number" id="year" />
+      <span>Image: </span>
+      <input type="text" id="image" />
+      <button onclick="addStudent()">Add Student</button>
+    </div>
+
+    <div id="display"></div>
+    <hr />
+    <button onclick="SaveStudents()">Save Students</button>
+    <hr>
+    <a href="index.html" style="text-decoration: none; color: white; background-color: #007bff; padding: 10px 20px; border-radius: 5px; margin: 10px; display: inline-block; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
+        Bouncing Button
+      </a>
+      <a href="filter.html" style="text-decoration: none; color: white; background-color: #28a745; padding: 10px 20px; border-radius: 5px; margin: 10px; display: inline-block; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
+        Array Filter
+      </a>
+      <a href="zoo.html" style="text-decoration: none; color: white; background-color: #ffc107; padding: 10px 20px; border-radius: 5px; margin: 10px; display: inline-block; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
+        Zoo Page
+      </a>
+
+    <script>
+      let students = [
+        {
+          name: "Jack",
+          age: 32,
+          year: 4,
+          image: '<img src="https://picsum.photos/id/177/200/300" alt="Jack">',
+        },
+        {
+          name: "Amy",
+          age: 23,
+          year: 1,
+          image: '<img src="https://picsum.photos/id/64/200/300" alt="Amy">',
+        },
+        {
+          name: "Dave",
+          age: 25,
+          year: 3,
+          image: '<img src="https://picsum.photos/id/91/200/300" alt="Dave">',
+        },
+      ];
+
+      function displayStudents() {
+        display.innerHTML = "";
+        for (i = 0; i < students.length; i++) {
+          display.innerHTML += `
+            <button onclick='del(${i})'>Delete</button>
+            <button onclick='updStudent(${i})'>Update Student info</button>
+            name: ${students[i].name}
+            age: ${students[i].age}
+            year: ${students[i].year}
+            image: ${students[i].image}
+            <br>`;
+        }
+      }
+      displayStudents();
+
+      function del(ind) {
+        students.splice(ind, 1);
+        displayStudents();
+      }
+
+      function addStudent() {
+        students.push({
+          name: stuName.value,
+          age: age.value,
+          year: year.value,
+          image: `<img src="${image.value}" alt="${stuName.value}">`,
+        });
+        displayStudents();
+      }
+
+      function updStudent(ind) {
+        students[ind].name = stuName.value;
+        students[ind].age = age.value;
+        students[ind].year = year.value;
+        students[
+          ind
+        ].image = `<img src="${image.value}" alt="${stuName.value}">`;
+        displayStudents();
+      }
+
+      function SaveStudents() {
+        localStorage.setItem("myStudents", JSON.stringify(students));
+      }
+    </script>
+  </body>
+</html>

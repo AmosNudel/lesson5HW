@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zoo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+      }
+      h1 {
+        text-align: center;
+        color: #4caf50;
+      }
+      #userInput {
+        background-color: #ffffff;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      #userInput input,
+      #userInput select,
+      #userInput button {
+        margin: 5px 0;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      hr {
+        border: 1px solid #4caf50;
+      }
+      #display {
+        margin-top: 20px;
+      }
+      #display div {
+        background-color: #ffffff;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Zoo Site</h1>
+    <div id="userInput">
+      Name: <input id="animalName" type="text" /> Color:
+      <select id="color">
+        <option>White</option>
+        <option>Black</option>
+        <option>Brown</option>
+        <option>Gray</option>
+      </select>
+
+      Weight <input id="weight" type="number" placeholder="in Kg" /> image
+      URL:<input id="image" type="text" placeholder="Enter image URL" />
+      <button onclick="addAnimal()">Add Animal</button>
+    </div>
+    <hr />
+    <div id="display"></div>
+    <hr />
+    <button onclick="saveZoo()">Save Zoo</button>
+    <hr>
+    <a href="index.html" style="text-decoration: none; color: white; background-color: #007bff; padding: 10px 20px; border-radius: 5px; margin: 10px; display: inline-block; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
+        Bouncing Button
+      </a>
+      <a href="filter.html" style="text-decoration: none; color: white; background-color: #28a745; padding: 10px 20px; border-radius: 5px; margin: 10px; display: inline-block; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
+        Array Filter
+      </a>
+      <a href="students.html" style="text-decoration: none; color: white; background-color: #ffc107; padding: 10px 20px; border-radius: 5px; margin: 10px; display: inline-block; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
+        Students Page
+    </a>
+
+    <script>
+      let animals = [
+        {
+          name: "Bear",
+          color: "Black",
+          weight: 250,
+          image: "<img src='media/bear.jpg' alt='bear'>",
+        },
+        {
+          name: "Lion",
+          color: "Brown",
+          weight: 190,
+          image: "<img src='media/lion.jpg' alt='bear'>",
+        },
+        {
+          name: "Monkey",
+          color: "White",
+          weight: 120,
+          image: "<img src='media/monkey.jpg' alt='bear'>",
+        },
+      ];
+
+      function saveZoo() {
+        localStorage.setItem("myZoo", JSON.stringify(animals));
+      }
+
+      function displayZoo() {
+        display.innerHTML = "";
+        for (i = 0; i < animals.length; i++) {
+          display.innerHTML += `
+                <button onclick='del(${i})'>Delete</button>
+                <button onclick='updAnimal(${i})'>Update Animal</button>
+                name: ${animals[i].name}
+                color: ${animals[i].color}
+                weight: ${animals[i].weight}
+                image: ${animals[i].image}
+                <br>`;
+        }
+      }
+      displayZoo();
+
+      function addAnimal() {
+        animals.push({
+          name: animalName.value,
+          color: color.value,
+          weight: weight.value,
+          image: `<img src='${image.value}' alt='${animalName.value}'>`,
+        });
+        displayZoo();
+      }
+
+      function del(ind) {
+        animals.splice(ind, 1);
+        displayZoo();
+      }
+
+      function updAnimal(ind) {
+        animals[ind].name = animalName.value;
+        animals[ind].color = color.value;
+        animals[ind].weight = weight.value;
+        animals[
+          ind
+        ].image = `<img src='${image.value}' alt='${animalName.value}'>`;
+        displayZoo();
+      }
+    </script>
+  </body>
+</html>
